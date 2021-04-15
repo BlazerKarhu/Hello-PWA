@@ -1,7 +1,11 @@
-window.onload = () => {
-  'use strict';
-
+'use strict';
+(async () => {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js');
+    try {
+      await navigator.serviceWorker.register('./sw.js');
+      console.log('Service worker registered');
+    } catch (error) {
+      console.error(error);
+    }
   }
-};
+})();
